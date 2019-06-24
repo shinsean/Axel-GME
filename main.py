@@ -1,4 +1,4 @@
-from import_libraries import *
+from map_editor import *
 
 pygame.init()
 
