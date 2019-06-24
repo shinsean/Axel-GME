@@ -1,3 +1,3 @@
 import pygame
 
-from colors.py import *
+from colors import *
