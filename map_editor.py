@@ -25,3 +25,8 @@ class Game_State(State):
         self.all_sprites_list = pygame.sprite.Group()
         # Not exactly sure yet what I need this for.
         self.wall_list = pygame.sprite.Group()
+
+    # Core function.
+    def render(self, display):
+        self.all_sprites_list.draw(display)
+    #
