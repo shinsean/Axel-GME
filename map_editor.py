@@ -17,7 +17,7 @@ class State():
     def handle_events(self):
         raise NotImplementedError
 
-class Game_State(State):
+class Editing_State(State):
     def __init__(self):
         # Will add more here as I make the program.
         super().__init__()
