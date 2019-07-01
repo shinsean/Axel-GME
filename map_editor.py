@@ -30,3 +30,9 @@ class Editing_State(State):
     def render(self, display):
         self.all_sprites_list.draw(display)
     #
+
+    # Core function.
+    # I don't think I need this method which is why I am leaving it blank.
+    def update(self):
+        pass
+    #
