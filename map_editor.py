@@ -36,3 +36,19 @@ class Editing_State(State):
     def update(self):
         pass
     #
+
+    # Core function.
+    # MAJOR TODO: Add a way (most likely right click) for the user to delete
+    # placed blocks. If it is right click, make the program differentiate
+    # between left click and right click.
+    def handle_events(self):
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                end_program()
+
+            if event.type == MOUSEBUTTONDOWN:
+                self.raw_x, self.raw_y = event.pos
+                self.block = Block(raw_x, raw_y)
+                self.wall_list.add(block)
+                self.all_sprites_list.add(block)
+    #
