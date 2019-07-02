@@ -46,7 +46,7 @@ class Editing_State(State):
             if event.type == pygame.QUIT:
                 end_program()
 
-            if event.type == MOUSEBUTTONDOWN:
+            if event.type == pygame.MOUSEBUTTONDOWN:
                 self.raw_x, self.raw_y = event.pos
                 self.block = Block(raw_x, raw_y)
                 self.wall_list.add(block)
