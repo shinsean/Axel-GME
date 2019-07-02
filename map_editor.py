@@ -48,7 +48,7 @@ class Editing_State(State):
 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 self.raw_x, self.raw_y = event.pos
-                self.block = Block(raw_x, raw_y)
+                self.block = Block(self.raw_x, self.raw_y)
                 self.wall_list.add(block)
                 self.all_sprites_list.add(block)
     #
