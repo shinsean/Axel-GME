@@ -41,7 +41,7 @@ class Editing_State(State):
     # MAJOR TODO: Add a way (most likely right click) for the user to delete
     # placed blocks. If it is right click, make the program differentiate
     # between left click and right click.
-    def handle_events(self):
+    def handle_events(self, pressed_button):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 end_program()
