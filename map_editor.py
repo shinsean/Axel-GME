@@ -1,4 +1,4 @@
-from map_assets import *
+from map_saver import *
 
 def end_program():
     pygame.quit()
