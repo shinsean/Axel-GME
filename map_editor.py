@@ -80,7 +80,7 @@ class Editing_State(State):
     def handle_events(self, pressed_button):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                save_current_map(map_list)
+                save_current_map(self.map_list)
                 end_program()
 
             if event.type == pygame.MOUSEBUTTONDOWN:
