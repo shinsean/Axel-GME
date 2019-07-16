@@ -45,6 +45,7 @@ class Editing_State(State):
 
     def convert_save_to_list(self, opened_save_file):
         for rows in opened_save_file:
+            print(rows)
             for letters in rows:
                 self.temp_map_list.append(letters)
 
@@ -54,10 +55,8 @@ class Editing_State(State):
     # TODO: This will be used when the user wants to create a new save file. 
     def reset_map(self, display_width, display_height, block_side_length):
         for j in range(int(display_width/block_side_length)):
-            if j == (int(display_width/block_side_length)) - 1:
-                self.temp_map_list.append("0\n")
-            else:
-                self.temp_map_list.append("0")
+            self.temp_map_list.append("0")
+        self.temp_map_list.append("\n")
 
         for i in range(int(display_height/block_side_length)):
             self.map_list.append(self.temp_map_list)
