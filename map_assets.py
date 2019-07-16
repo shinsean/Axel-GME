@@ -4,7 +4,7 @@ class Block(pygame.sprite.Sprite):
     def __init__(self, raw_x, raw_y):
         super().__init__()
 
-        self.side_length = 10
+        self.side_length = 32
 
         self.raw_x = raw_x
         self.raw_y = raw_y
