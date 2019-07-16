@@ -26,25 +26,34 @@ class Editing_State(State):
         # Not exactly sure yet what I need this for.
         self.wall_list = pygame.sprite.Group()
 
-        # Change this so that the desired_save is changeable.
+        self.temp_map_list = []
+        self.map_list = []
+
+        # TODO: Change this so that the desired_save is changeable.
         self.load_save("test_save.txt", display_width, display_height, block_side_length)
 
     def load_save(self, desired_save, display_width, display_height, block_side_length):
         try:
             self.opened_save_file = open(desired_save, "r")
             self.convert_save_to_list(self.opened_save_file)
-            break
+            print(self.map_list) # Debugging code. Remove later.
+        # TODO: Change this so that the user can choose whether to reset save file.
+        # In fact, just allow them to create a new file as an option
+        # instead of resetting the map and having to save again.
         except:
             self.reset_map(display_width, display_height, block_side_length)
 
+    def convert_save_to_list(self, opened_save_file):
+        for rows in opened_save_file:
+            for letters in rows:
+                self.temp_map_list.append(letters)
+
+            self.map_list.append(self.temp_map_list)
+            self.temp_map_list = []
+
     # TODO: This will be used when the user wants to create a new save file. 
     def reset_map(self, display_width, display_height, block_side_length):
-        self.temp_map_list = []
-        self.map_list = []
-
         for j in range(int(display_width/block_side_length)):
-            print(j)
-            print((int(display_width/block_side_length)))
             if j == (int(display_width/block_side_length)) - 1:
                 self.temp_map_list.append("0\n")
             else:
