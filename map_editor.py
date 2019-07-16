@@ -26,10 +26,19 @@ class Editing_State(State):
         # Not exactly sure yet what I need this for.
         self.wall_list = pygame.sprite.Group()
 
-        self.reset_list(display_width, display_height, block_side_length)
+        # Change this so that the desired_save is changeable.
+        self.load_save("test_save.txt", display_width, display_height, block_side_length)
 
-    # TODO: Change this so that it factors in the screen size in the future. 
-    def reset_list(self, display_width, display_height, block_side_length):
+    def load_save(self, desired_save, display_width, display_height, block_side_length):
+        try:
+            self.opened_save_file = open(desired_save, "r")
+            self.convert_save_to_list(self.opened_save_file)
+            break
+        except:
+            self.reset_map(display_width, display_height, block_side_length)
+
+    # TODO: This will be used when the user wants to create a new save file. 
+    def reset_map(self, display_width, display_height, block_side_length):
         self.temp_map_list = []
         self.map_list = []
 
