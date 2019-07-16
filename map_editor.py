@@ -18,13 +18,34 @@ class State():
         raise NotImplementedError
 
 class Editing_State(State):
-    def __init__(self):
+    def __init__(self, display_width, display_height, block_side_length):
         # Will add more here as I make the program.
         super().__init__()
 
         self.all_sprites_list = pygame.sprite.Group()
         # Not exactly sure yet what I need this for.
         self.wall_list = pygame.sprite.Group()
+
+        self.reset_list(display_width, display_height, block_side_length)
+
+    # TODO: Change this so that it factors in the screen size in the future. 
+    def reset_list(self, display_width, display_height, block_side_length):
+        self.temp_map_list = []
+        self.map_list = []
+
+        for j in range(int(display_width/block_side_length)):
+            print(j)
+            print((int(display_width/block_side_length)))
+            if j == (int(display_width/block_side_length)) - 1:
+                self.temp_map_list.append("0\n")
+            else:
+                self.temp_map_list.append("0")
+
+        for i in range(int(display_height/block_side_length)):
+            self.map_list.append(self.temp_map_list)
+
+        print(self.map_list)
+        save_current_map(self.map_list)
 
     # Core function.
     def render(self, display):
