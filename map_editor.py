@@ -36,7 +36,6 @@ class Editing_State(State):
         try:
             self.opened_save_file = open(desired_save, "r")
             self.convert_save_to_list(self.opened_save_file)
-            print(self.map_list) # Debugging code. Remove later.
         # TODO: Change this so that the user can choose whether to reset save file.
         # In fact, just allow them to create a new file as an option
         # instead of resetting the map and having to save again.
@@ -45,7 +44,6 @@ class Editing_State(State):
 
     def convert_save_to_list(self, opened_save_file):
         for rows in opened_save_file:
-            print(rows)
             for letters in rows:
                 self.temp_map_list.append(letters)
 
