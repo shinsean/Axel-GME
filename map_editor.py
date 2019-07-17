@@ -74,7 +74,7 @@ class Editing_State(State):
     #
 
     # Clean this up.
-    def update_map_list(self, mouse_x_location, mouse_y_location, block_side_length):
+    def update_map_list(self, mouse_click_x_location, mouse_click_y_location, block_side_length):
         self.list_index_x = int(mouse_click_x_location/block_side_length)
         self.list_index_y = int(mouse_click_x_location/block_side_length)
 
