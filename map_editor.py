@@ -84,7 +84,7 @@ class Editing_State(State):
     # MAJOR TODO: Add a way (most likely right click) for the user to delete
     # placed blocks. If it is right click, make the program differentiate
     # between left click and right click.
-    def handle_events(self, pressed_button):
+    def handle_events(self, pressed_button, block_side_length):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 save_current_map(self.map_list)
@@ -93,6 +93,7 @@ class Editing_State(State):
             if event.type == pygame.MOUSEBUTTONDOWN:
                 self.raw_x, self.raw_y = event.pos
                 self.block = Block(self.raw_x, self.raw_y)
+                self.update_map_list(self.raw_x, self.raw_y, block_side_length)
                 self.wall_list.add(self.block)
                 self.all_sprites_list.add(self.block)
     #
