@@ -59,7 +59,6 @@ class Editing_State(State):
         for i in range(int(display_height/block_side_length)):
             self.map_list.append(self.temp_map_list)
 
-        print(self.map_list)
         save_current_map(self.map_list)
 
     # Core function.
@@ -78,7 +77,7 @@ class Editing_State(State):
         self.list_index_x = int(mouse_click_x_location/block_side_length)
         self.list_index_y = int(mouse_click_y_location/block_side_length)
 
-        self.map_list[self.list_index_x][self.list_index_y] = "X"
+        self.map_list[self.list_index_y][self.list_index_x] = "X"
 
     # Core function.
     # MAJOR TODO: Add a way (most likely right click) for the user to delete
