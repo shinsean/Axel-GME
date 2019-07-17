@@ -73,6 +73,16 @@ class Editing_State(State):
         pass
     #
 
+    # Clean this up.
+    def update_map_list(self, mouse_x_location, mouse_y_location, block_side_length):
+        self.set_x_input, self.set_y_input = self.set_coordinates(mouse_x_click_location,
+            mouse_y_clock_location)
+        
+        self.list_index_x = self.set_x_input/block_side_length
+        self.list_index_y = self.set_y_input/block_side_length
+
+        self.map_list[self.list_index_x][self.list_index_y] = "X"
+
     # Core function.
     # MAJOR TODO: Add a way (most likely right click) for the user to delete
     # placed blocks. If it is right click, make the program differentiate
