@@ -57,7 +57,7 @@ class Editing_State(State):
         self.temp_map_list.append("\n")
 
         for i in range(int(display_height/block_side_length)):
-            self.map_list.append(self.temp_map_list)
+            self.map_list.append(list(self.temp_map_list))
 
         save_current_map(self.map_list)
 
