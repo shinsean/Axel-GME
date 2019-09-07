@@ -63,11 +63,11 @@ class Editing_State(State):
         save_current_map(self.map_list)
 
     def create_loaded_blocks(self, block_side_length):
-        for y_index in range(self.map_list):
-            for x_index in range(rows):
+        for y_index in range(len(self.map_list)):
+            for x_index in range(len(self.map_list[y_index])):
                 if self.map_list[y_index][x_index] == 'X':
-                    self.raw_x = columns * block_side_length
-                    self.raw_y = columns * block_side_length
+                    self.raw_x = x_index * block_side_length
+                    self.raw_y = y_index * block_side_length
                     self.block = Block(self.raw_x, self.raw_y)
                     self.wall_list.add(self.block)
                     self.all_sprites_list.add(self.block)
