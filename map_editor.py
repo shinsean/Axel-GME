@@ -36,6 +36,7 @@ class Editing_State(State):
         try:
             self.opened_save_file = open(desired_save, "r")
             self.convert_save_to_list(self.opened_save_file)
+            self.create_loaded_blocks(block_side_length)
         # TODO: Change this so that the user can choose whether to reset save file.
         # In fact, just allow them to create a new file as an option
         # instead of resetting the map and having to save again.
