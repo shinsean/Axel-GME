@@ -99,7 +99,10 @@ class Editing_State(State):
 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 self.left_click, self.scroll_button, self.right_click = pygame.mouse.get_pressed()
-                self.create_block(event.pos, block_side_length)
+                if self.left_click == 1:
+                    self.create_block(event.pos, block_side_length)
+                elif self.right_click == 1:
+                    self.delete_block(event.pos)
     #
 
     def create_block(self, click_position, block_side_length):
