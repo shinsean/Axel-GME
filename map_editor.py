@@ -66,11 +66,8 @@ class Editing_State(State):
         for y_index in range(len(self.map_list)):
             for x_index in range(len(self.map_list[y_index])):
                 if self.map_list[y_index][x_index] == 'X':
-                    self.raw_x = x_index * block_side_length
-                    self.raw_y = y_index * block_side_length
-                    self.block = Block(self.raw_x, self.raw_y)
-                    self.wall_list.add(self.block)
-                    self.all_sprites_list.add(self.block)
+                    self.create_block(((x_index * block_side_length),
+                        (y_index * block_side_length)), block_side_length)
 
     # Core function.
     def render(self, display):
