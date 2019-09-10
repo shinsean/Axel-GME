@@ -36,6 +36,7 @@ class Editing_State(State):
         try:
             self.opened_save_file = open(desired_save, "r")
             self.convert_save_to_list(self.opened_save_file)
+            self.create_loaded_blocks(block_side_length)
         # TODO: Change this so that the user can choose whether to reset save file.
         # In fact, just allow them to create a new file as an option
         # instead of resetting the map and having to save again.
@@ -60,6 +61,16 @@ class Editing_State(State):
             self.map_list.append(list(self.temp_map_list))
 
         save_current_map(self.map_list)
+
+    def create_loaded_blocks(self, block_side_length):
+        for y_index in range(len(self.map_list)):
+            for x_index in range(len(self.map_list[y_index])):
+                if self.map_list[y_index][x_index] == 'X':
+                    self.raw_x = x_index * block_side_length
+                    self.raw_y = y_index * block_side_length
+                    self.block = Block(self.raw_x, self.raw_y)
+                    self.wall_list.add(self.block)
+                    self.all_sprites_list.add(self.block)
 
     # Core function.
     def render(self, display):
