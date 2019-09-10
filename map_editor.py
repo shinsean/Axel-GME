@@ -111,3 +111,13 @@ class Editing_State(State):
         self.update_map_list(self.raw_x, self.raw_y, block_side_length)
         self.wall_list.add(self.block)
         self.all_sprites_list.add(self.block)
+
+    def delete_block(self, click_position):
+        self.raw_click_x, self.raw_click_y = click_position
+        self.grid_set_x = (int(self.raw_click_x/self.side_length) * self.side_length)
+        self.grid_set_y = (int(self.raw_click_y/self.side_length) * self.side_length)
+        for block in (list(wall_list)):
+            if block.rect.x, block.rect.y == self.grid_set_x, self.grid_set_y:
+                block.kill()
+        
+        update_map_list(self.grid_set_x, self.grid_set_y, block_side_length, "Delete")
