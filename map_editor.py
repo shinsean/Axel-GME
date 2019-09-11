@@ -104,7 +104,7 @@ class Editing_State(State):
                 if self.left_click == 1:
                     self.create_block(event.pos, block_side_length)
                 elif self.right_click == 1:
-                    self.delete_block(event.pos)
+                    self.delete_block(event.pos, block_side_length)
     #
 
     def create_block(self, click_position, block_side_length):
@@ -114,10 +114,10 @@ class Editing_State(State):
         self.wall_list.add(self.block)
         self.all_sprites_list.add(self.block)
 
-    def delete_block(self, click_position):
+    def delete_block(self, click_position, block_side_length):
         self.raw_click_x, self.raw_click_y = click_position
-        self.grid_set_x = (int(self.raw_click_x/self.side_length) * self.side_length)
-        self.grid_set_y = (int(self.raw_click_y/self.side_length) * self.side_length)
+        self.grid_set_x = (int(self.raw_click_x/block_side_length) * block_side_length)
+        self.grid_set_y = (int(self.raw_click_y/block_side_length) * block_side_length)
         for block in (list(wall_list)):
             if (block.rect.x, block.rect.y) == (self.grid_set_x, self.grid_set_y):
                 block.kill()
