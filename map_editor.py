@@ -19,7 +19,6 @@ class State():
 
 class Editing_State(State):
     def __init__(self, display_width, display_height, block_side_length):
-        # Will add more here as I make the program.
         super().__init__()
 
         self.all_sprites_list = pygame.sprite.Group()
@@ -66,11 +65,8 @@ class Editing_State(State):
         for y_index in range(len(self.map_list)):
             for x_index in range(len(self.map_list[y_index])):
                 if self.map_list[y_index][x_index] == 'X':
-                    self.raw_x = x_index * block_side_length
-                    self.raw_y = y_index * block_side_length
-                    self.block = Block(self.raw_x, self.raw_y)
-                    self.wall_list.add(self.block)
-                    self.all_sprites_list.add(self.block)
+                    self.create_block(((x_index * block_side_length),
+                        (y_index * block_side_length)), block_side_length)
 
     # Core function.
     def render(self, display):
@@ -78,22 +74,21 @@ class Editing_State(State):
     #
 
     # Core function.
-    # I don't think I need this method which is why I am leaving it blank.
     def update(self):
-        pass
+        self.all_sprites_list.update()
     #
 
-    # Clean this up.
-    def update_map_list(self, mouse_click_x_location, mouse_click_y_location, block_side_length):
+    def update_map_list(self, mouse_click_x_location, mouse_click_y_location,
+        block_side_length, action_type):
         self.list_index_x = int(mouse_click_x_location/block_side_length)
         self.list_index_y = int(mouse_click_y_location/block_side_length)
-
-        self.map_list[self.list_index_y][self.list_index_x] = "X"
+        
+        if action_type == "Create":
+            self.map_list[self.list_index_y][self.list_index_x] = "X"
+        elif action_type == "Delete":
+            self.map_list[self.list_index_y][self.list_index_x] = "0"
 
     # Core function.
-    # MAJOR TODO: Add a way (most likely right click) for the user to delete
-    # placed blocks. If it is right click, make the program differentiate
-    # between left click and right click.
     def handle_events(self, pressed_button, block_side_length):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -101,9 +96,26 @@ class Editing_State(State):
                 end_program()
 
             if event.type == pygame.MOUSEBUTTONDOWN:
-                self.raw_x, self.raw_y = event.pos
-                self.block = Block(self.raw_x, self.raw_y)
-                self.update_map_list(self.raw_x, self.raw_y, block_side_length)
-                self.wall_list.add(self.block)
-                self.all_sprites_list.add(self.block)
+                self.left_click, self.scroll_button, self.right_click = pygame.mouse.get_pressed()
+                if self.left_click == 1:
+                    self.create_block(event.pos, block_side_length)
+                elif self.right_click == 1:
+                    self.delete_block(event.pos, block_side_length)
     #
+
+    def create_block(self, click_position, block_side_length):
+        self.raw_x, self.raw_y = click_position
+        self.block = Block(self.raw_x, self.raw_y)
+        self.update_map_list(self.raw_x, self.raw_y, block_side_length, "Create")
+        self.wall_list.add(self.block)
+        self.all_sprites_list.add(self.block)
+
+    def delete_block(self, click_position, block_side_length):
+        self.raw_click_x, self.raw_click_y = click_position
+        self.grid_set_x = (int(self.raw_click_x/block_side_length) * block_side_length)
+        self.grid_set_y = (int(self.raw_click_y/block_side_length) * block_side_length)
+        for block in (list(self.wall_list)):
+            if (block.rect.x, block.rect.y) == (self.grid_set_x, self.grid_set_y):
+                block.kill()
+        
+        self.update_map_list(self.grid_set_x, self.grid_set_y, block_side_length, "Delete")
