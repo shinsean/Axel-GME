@@ -90,6 +90,11 @@ class Editing_State(State):
             self.list_index_y = int(mouse_click_y_location/block_side_length)
 
             self.map_list[self.list_index_y][self.list_index_x] = "X"
+        elif action_type == "Delete":
+            self.list_index_x = int(mouse_click_x_location/block_side_length)
+            self.list_index_y = int(mouse_click_y_location/block_side_length)
+
+            self.map_list[self.list_index_y][self.list_index_x] = "0"
 
     # Core function.
     # MAJOR TODO: Add a way (most likely right click) for the user to delete
