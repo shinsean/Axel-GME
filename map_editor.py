@@ -77,7 +77,7 @@ class Editing_State(State):
     # Core function.
     # I don't think I need this method which is why I am leaving it blank.
     def update(self):
-        pass
+        self.all_sprites_list.update()
     #
 
     # Clean this up.
