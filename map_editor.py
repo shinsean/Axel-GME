@@ -119,7 +119,7 @@ class Editing_State(State):
         self.grid_set_x = (int(self.raw_click_x/self.side_length) * self.side_length)
         self.grid_set_y = (int(self.raw_click_y/self.side_length) * self.side_length)
         for block in (list(wall_list)):
-            if block.rect.x, block.rect.y == self.grid_set_x, self.grid_set_y:
+            if (block.rect.x, block.rect.y) == (self.grid_set_x, self.grid_set_y):
                 block.kill()
         
         update_map_list(self.grid_set_x, self.grid_set_y, block_side_length, "Delete")
