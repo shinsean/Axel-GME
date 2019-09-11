@@ -85,10 +85,11 @@ class Editing_State(State):
     # Make it so it takes a "Add" or "Delete" string argument.
     def update_map_list(self, mouse_click_x_location, mouse_click_y_location,
         block_side_length, action_type):
-        self.list_index_x = int(mouse_click_x_location/block_side_length)
-        self.list_index_y = int(mouse_click_y_location/block_side_length)
+        if action_type == "Create":
+            self.list_index_x = int(mouse_click_x_location/block_side_length)
+            self.list_index_y = int(mouse_click_y_location/block_side_length)
 
-        self.map_list[self.list_index_y][self.list_index_x] = "X"
+            self.map_list[self.list_index_y][self.list_index_x] = "X"
 
     # Core function.
     # MAJOR TODO: Add a way (most likely right click) for the user to delete
