@@ -20,6 +20,7 @@ def main_loop():
 
         # Placeholder in case of the future.
         program_state.update()
+        DISPLAY.fill(BLACK)
 
         program_state.render(DISPLAY)
 
