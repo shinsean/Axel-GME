@@ -18,7 +18,6 @@ def main_loop():
         pressed_buttons = pygame.key.get_pressed()
         program_state.handle_events(pressed_buttons, 30)
 
-        # Placeholder in case of the future.
         program_state.update()
         DISPLAY.fill(BLACK)
 

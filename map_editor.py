@@ -19,7 +19,6 @@ class State():
 
 class Editing_State(State):
     def __init__(self, display_width, display_height, block_side_length):
-        # Will add more here as I make the program.
         super().__init__()
 
         self.all_sprites_list = pygame.sprite.Group()
@@ -75,14 +74,10 @@ class Editing_State(State):
     #
 
     # Core function.
-    # I don't think I need this method which is why I am leaving it blank.
     def update(self):
         self.all_sprites_list.update()
     #
 
-    # Clean this up.
-    # Make this so that I can choose whether to delete and replace with "0" or add and replace with "X".
-    # Make it so it takes a "Add" or "Delete" string argument.
     def update_map_list(self, mouse_click_x_location, mouse_click_y_location,
         block_side_length, action_type):
         self.list_index_x = int(mouse_click_x_location/block_side_length)
@@ -94,9 +89,6 @@ class Editing_State(State):
             self.map_list[self.list_index_y][self.list_index_x] = "0"
 
     # Core function.
-    # MAJOR TODO: Add a way (most likely right click) for the user to delete
-    # placed blocks. If it is right click, make the program differentiate
-    # between left click and right click.
     def handle_events(self, pressed_button, block_side_length):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
