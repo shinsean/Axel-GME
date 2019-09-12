@@ -78,16 +78,6 @@ class Editing_State(State):
         self.all_sprites_list.update()
     #
 
-    def update_map_list(self, mouse_click_x_location, mouse_click_y_location,
-        block_side_length, action_type):
-        self.list_index_x = int(mouse_click_x_location/block_side_length)
-        self.list_index_y = int(mouse_click_y_location/block_side_length)
-        
-        if action_type == "Create":
-            self.map_list[self.list_index_y][self.list_index_x] = "X"
-        elif action_type == "Delete":
-            self.map_list[self.list_index_y][self.list_index_x] = "0"
-
     # Core function.
     def handle_events(self, pressed_button, block_side_length):
         for event in pygame.event.get():
@@ -102,6 +92,16 @@ class Editing_State(State):
                 elif self.right_click == 1:
                     self.delete_block(event.pos, block_side_length)
     #
+
+    def update_map_list(self, mouse_click_x_location, mouse_click_y_location,
+        block_side_length, action_type):
+        self.list_index_x = int(mouse_click_x_location/block_side_length)
+        self.list_index_y = int(mouse_click_y_location/block_side_length)
+        
+        if action_type == "Create":
+            self.map_list[self.list_index_y][self.list_index_x] = "X"
+        elif action_type == "Delete":
+            self.map_list[self.list_index_y][self.list_index_x] = "0"
 
     def create_block(self, click_position, block_side_length):
         self.raw_x, self.raw_y = click_position
