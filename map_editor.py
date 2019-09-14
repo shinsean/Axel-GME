@@ -93,6 +93,14 @@ class Editing_State(State):
                     self.delete_block(event.pos, block_side_length)
     #
 
+    # TODO: Have a way to save whiel creating a new file.
+    def save_current_map(map_list_rep):
+        self.open_save_file = open('save_file.txt', 'w')
+        for rows in map_list_rep:
+            for letter in rows:
+                self.open_save_file.write(letter)
+        self.open_save_file.close()
+
     def update_map_list(self, mouse_click_x_location, mouse_click_y_location,
         block_side_length, action_type):
         self.list_index_x = int(mouse_click_x_location/block_side_length)
