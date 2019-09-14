@@ -29,7 +29,7 @@ class Editing_State(State):
         self.map_list = []
 
         # TODO: Change this so that the desired_save is changeable.
-        self.load_save("save_file", display_width, display_height, block_side_length)
+        self.load_save("save_file.txt", display_width, display_height, block_side_length)
 
     def load_save(self, desired_save, display_width, display_height, block_side_length):
         try:
