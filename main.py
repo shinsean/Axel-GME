@@ -1,5 +1,6 @@
 import pygame
 
+import map_editor as mp
 import colors as clr
 
 pygame.init()
