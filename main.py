@@ -21,7 +21,7 @@ def main_loop():
         program_state.handle_events(pressed_buttons, 30)
 
         program_state.update()
-        DISPLAY.fill(BLACK)
+        DISPLAY.fill(clr.BLACK)
 
         program_state.render(DISPLAY)
 
