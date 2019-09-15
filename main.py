@@ -15,7 +15,7 @@ DISPLAY = pygame.display.set_mode([DISPLAY_WIDTH, DISPLAY_HEIGHT])
 clock = pygame.time.Clock()
 
 def main_loop():
-    program_state = Editing_State(DISPLAY_WIDTH, DISPLAY_HEIGHT, 30)
+    program_state = mp.Editing_State(DISPLAY_WIDTH, DISPLAY_HEIGHT, 30)
     
     while True:
         pressed_buttons = pygame.key.get_pressed()
