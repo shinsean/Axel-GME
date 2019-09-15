@@ -1,4 +1,6 @@
-from import_libraries import *
+import pygame
+
+import colors as clr
 
 class Block(pygame.sprite.Sprite):
     def __init__(self, raw_x, raw_y):
