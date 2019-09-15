@@ -1,4 +1,6 @@
-from map_assets import *
+import pygame
+
+import map_assets as ma
 
 def end_program():
     pygame.quit()
