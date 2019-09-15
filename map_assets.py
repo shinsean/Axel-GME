@@ -1,4 +1,6 @@
-from import_libraries import *
+import pygame
+
+import colors as clr
 
 class Block(pygame.sprite.Sprite):
     def __init__(self, raw_x, raw_y):
@@ -10,7 +12,7 @@ class Block(pygame.sprite.Sprite):
         self.raw_y = raw_y
 
         self.image = pygame.Surface([self.side_length, self.side_length])
-        self.image.fill(GREEN)
+        self.image.fill(clr.GREEN)
         self.rect = self.image.get_rect()
         self.set_grid_positions()
 

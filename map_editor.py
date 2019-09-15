@@ -1,4 +1,6 @@
-from map_saver import *
+import pygame
+
+import map_assets as mp_ast
 
 def end_program():
     pygame.quit()
@@ -82,7 +84,7 @@ class Editing_State(State):
     def handle_events(self, pressed_button, block_side_length):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                save_current_map(self.map_list)
+                self.save_current_map(self.map_list)
                 end_program()
 
             if event.type == pygame.MOUSEBUTTONDOWN:
@@ -92,6 +94,14 @@ class Editing_State(State):
                 elif self.right_click == 1:
                     self.delete_block(event.pos, block_side_length)
     #
+
+    # TODO: Have a way to save whiel creating a new file.
+    def save_current_map(self, map_list_rep):
+        self.open_save_file = open('save_file.txt', 'w')
+        for rows in map_list_rep:
+            for letter in rows:
+                self.open_save_file.write(letter)
+        self.open_save_file.close()
 
     def update_map_list(self, mouse_click_x_location, mouse_click_y_location,
         block_side_length, action_type):
@@ -105,7 +115,7 @@ class Editing_State(State):
 
     def create_block(self, click_position, block_side_length):
         self.raw_x, self.raw_y = click_position
-        self.block = Block(self.raw_x, self.raw_y)
+        self.block = mp_ast.Block(self.raw_x, self.raw_y)
         self.update_map_list(self.raw_x, self.raw_y, block_side_length, "Create")
         self.wall_list.add(self.block)
         self.all_sprites_list.add(self.block)
