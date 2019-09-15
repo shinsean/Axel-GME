@@ -96,7 +96,7 @@ class Editing_State(State):
     #
 
     # TODO: Have a way to save whiel creating a new file.
-    def save_current_map(map_list_rep):
+    def save_current_map(self, map_list_rep):
         self.open_save_file = open('save_file.txt', 'w')
         for rows in map_list_rep:
             for letter in rows:
