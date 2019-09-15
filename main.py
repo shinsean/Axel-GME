@@ -1,4 +1,6 @@
-from map_editor import *
+import pygame
+
+import colors as clr
 
 pygame.init()
 
