@@ -115,7 +115,7 @@ class Editing_State(State):
 
     def create_block(self, click_position, block_side_length):
         self.raw_x, self.raw_y = click_position
-        self.block = Block(self.raw_x, self.raw_y)
+        self.block = ma.Block(self.raw_x, self.raw_y)
         self.update_map_list(self.raw_x, self.raw_y, block_side_length, "Create")
         self.wall_list.add(self.block)
         self.all_sprites_list.add(self.block)
