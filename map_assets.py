@@ -22,3 +22,17 @@ class Block(pygame.sprite.Sprite):
         
         self.rect.y = (int(self.raw_y/self.side_length)
             * self.side_length)
+        
+class Button(pygame.sprite.Sprite):
+    def __init__(self, x_position, y_position, width, length, color):
+        super().__init__()
+        
+        self.width = width
+        self.length = length
+        
+        self.image = pygame.Surface([self.width, self.side_length])
+        self.image.fill(color)
+        self.rect = self.image.get_rect
+        
+        self.rect.x = x_position
+        self.rect.y = y_position
