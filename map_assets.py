@@ -21,7 +21,6 @@ class Block(pygame.sprite.Sprite):
             * self.side_length)
         
         self.rect.y = (int(self.raw_y/self.side_length)
-<<<<<<< HEAD
             * self.side_length)
         
 class Button(pygame.sprite.Sprite):
@@ -41,6 +40,3 @@ class Button(pygame.sprite.Sprite):
     def update(self, click_position):
         self.mouse_x, self.mouse_y = click_position
         self.detect_cursor(self)
-=======
-            * self.side_length)
->>>>>>> parent of b2e00f6... Add Button class and init method
