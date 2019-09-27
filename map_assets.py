@@ -39,3 +39,7 @@ class Button(pygame.sprite.Sprite):
         
         self.rect.x = x_position
         self.rect.y = y_position
+
+    def update(self, click_position):
+        self.click_x, self.click_y = click_position
+        self.detect_mouse()
