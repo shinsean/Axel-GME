@@ -10,3 +10,10 @@ Axel Game Map Editor, henceforth referred to as Axel-GME, is a program
 designed to help, as the title implies, the creating of maps for games.
 Its main function is to allow the user to be able to create and place 
 blocks on the screen representing objects in the game that they are making.
+
+
+|INSTRUCTIONS|
+==============
+Once in the program, click on the screen to create blocks. These blocks
+will be saved into a text file upon exit. The blocks are represented in
+the text file as an "X".
