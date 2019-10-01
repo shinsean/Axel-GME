@@ -1,1 +1,12 @@
-
+                   |====================|
+                   |AXEL GAME MAP EDITOR|
+                   |    VERSION 0.1     |
+                   |====================|
+                   
+                   
+|DESCRIPTION|
+=============
+Axel Game Map Editor, henceforth referred to as Axel-GME, is a program
+designed to help, as the title implies, the creating of maps for games.
+Its main function is to allow the user to be able to create and place 
+blocks on the screen representing objects in the game that they are making.
