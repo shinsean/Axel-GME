@@ -12,6 +12,21 @@ Its main function is to allow the user to be able to create and place
 blocks on the screen representing objects in the game that they are making.
 
 
+|INSTALLATION|
+==============
+For this program, you will need Python 3 (preferably 3.6 or up) and Pygame 1.9.
+You can download them here:
+Python 3 (make sure to get the 64 bit version): 
+https://www.python.org/downloads/
+Pygame: 1.9: pygame.org
+
+Once you have Python 3 and Pygame downloaded,
+download the program code from here: 
+https://github.com/seanshin2647/Axel-GME/releases/tag/v0.1.1
+Unpack the .zip file and move the code to wherever you need it to be.
+
+An .exe file will be uploaded soon.
+
 |INSTRUCTIONS|
 ==============
 Once in the program, click on the screen to create blocks. These blocks
