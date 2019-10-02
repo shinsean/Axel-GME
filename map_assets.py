@@ -41,13 +41,13 @@ class Button(pygame.sprite.Sprite):
         self.rect.x = x_position
         self.rect.y = y_position
 
-    def update(self, click_position):
-        self.click_x, self.click_y = click_position
+    def update(self, cursor_position):
+        self.cursor_x, self.cursor_y = cursor_position
         self.detect_mouse()
 
     def detect_mouse(self):
-        if self.click_x >= self.rect.x and self.click_x <= (self.rect.x + self.length):
-            if self.click_y >= self.rect.y and self.click_y <= (self.rect.y + self.width):
+        if self.cursor_x >= self.rect.x and self.click_x <= (self.rect.x + self.length):
+            if self.cursor_y >= self.rect.y and self.click_y <= (self.rect.y + self.width):
                 self.hover = True
         else:
             self.hover = False
