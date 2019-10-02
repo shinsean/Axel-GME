@@ -49,6 +49,8 @@ class Button(pygame.sprite.Sprite):
         if self.click_x >= self.rect.x and self.click_x <= (self.rect.x + self.length):
             if self.click_y >= self.rect.y and self.click_y <= (self.rect.y + self.width):
                 self.hover = True
+        else:
+            self.hover = False
 
         if self.hover == True:
             self.color = self.alt_color
