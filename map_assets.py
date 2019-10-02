@@ -30,8 +30,9 @@ class Button(pygame.sprite.Sprite):
         self.width = width
         self.length = length
         
-        self.color = color
+        self.reg_color = color
         self.alt_color = alt_color
+        self.color = self.reg_color
         
         self.image = pygame.Surface([self.width, self.side_length])
         self.image.fill(self.color)
