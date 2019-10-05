@@ -63,7 +63,7 @@ class Editing_State(State):
         for i in range(int(display_height/block_side_length)):
             self.map_list.append(list(self.temp_map_list))
 
-        save_current_map(self.map_list)
+        self.save_current_map(self.map_list)
 
     def create_loaded_blocks(self, block_side_length):
         for y_index in range(len(self.map_list)):
