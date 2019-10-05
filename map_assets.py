@@ -23,3 +23,36 @@ class Block(pygame.sprite.Sprite):
         self.rect.y = (int(self.raw_y/self.side_length)
             * self.side_length)
         
+class Button(pygame.sprite.Sprite):
+    def __init__(self, x_position, y_position, width, length, color, alt_color):
+        super().__init__()
+        
+        self.width = width
+        self.length = length
+        
+        self.reg_color = color
+        self.alt_color = alt_color
+        self.color = self.reg_color
+        
+        self.image = pygame.Surface([self.width, self.side_length])
+        self.image.fill(self.color)
+        self.rect = self.image.get_rect
+        
+        self.rect.x = x_position
+        self.rect.y = y_position
+
+    def update(self, cursor_position):
+        self.cursor_x, self.cursor_y = cursor_position
+        self.detect_mouse()
+
+    def detect_mouse(self):
+        if self.cursor_x >= self.rect.x and self.click_x <= (self.rect.x + self.length):
+            if self.cursor_y >= self.rect.y and self.click_y <= (self.rect.y + self.width):
+                self.hover = True
+        else:
+            self.hover = False
+
+        if self.hover == True:
+            self.color = self.alt_color
+        elif self.hover == False:
+            self.color = self.reg_color

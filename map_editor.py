@@ -26,6 +26,8 @@ class Editing_State(State):
         self.all_sprites_list = pygame.sprite.Group()
         # Not exactly sure yet what I need this for.
         self.wall_list = pygame.sprite.Group()
+        # Buttons will go into this list instead of the all_sprites_list.
+        self.buttons_list = pygame.sprite.Group()
 
         self.temp_map_list = []
         self.map_list = []
