@@ -37,7 +37,9 @@ class Editing_State(State):
 
     def load_save(self, desired_save, display_width, display_height, block_side_length):
         try:
-            self.opened_save_file = open(desired_save, "r")
+            with open(desired_save, "r") as opened_file:
+                self.opened_save_file = opened_file
+
             self.convert_save_to_list(self.opened_save_file)
             self.create_loaded_blocks(block_side_length)
         # TODO: Change this so that the user can choose whether to reset save file.
