@@ -38,7 +38,7 @@ class Editing_State(State):
     def load_save(self, desired_save, display_width, display_height, block_side_length):
         try:
             with open(desired_save, "r") as opened_file:
-                self.opened_save_file = opened_file
+                self.opened_save_file = opened_file.read()
 
             self.convert_save_to_list(self.opened_save_file)
             self.create_loaded_blocks(block_side_length)
