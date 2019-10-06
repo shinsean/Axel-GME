@@ -52,6 +52,7 @@ class Editing_State(State):
         self.opened_save_file = self.opened_save_file.splitlines()
         for rows in self.opened_save_file:
             self.temp_map_list = [rows[i:i+1] for i in range(0, len(rows), 1)]
+            self.temp_map_list.append('\n')
 
             self.map_list.append(self.temp_map_list)
             self.temp_map_list = []
