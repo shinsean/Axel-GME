@@ -49,6 +49,7 @@ class Editing_State(State):
             self.reset_map(display_width, display_height, block_side_length)
 
     def convert_save_to_list(self, opened_save_file):
+        self.opened_save_file = self.opened_save_file.split()
         for rows in opened_save_file:
             for letters in rows:
                 self.temp_map_list.append(letters)
