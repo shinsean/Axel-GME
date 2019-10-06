@@ -37,7 +37,9 @@ class Editing_State(State):
 
     def load_save(self, desired_save, display_width, display_height, block_side_length):
         try:
-            self.opened_save_file = open(desired_save, "r")
+            with open(desired_save, "r") as opened_file:
+                self.opened_save_file = opened_file.read()
+
             self.convert_save_to_list(self.opened_save_file)
             self.create_loaded_blocks(block_side_length)
         # TODO: Change this so that the user can choose whether to reset save file.
@@ -47,9 +49,10 @@ class Editing_State(State):
             self.reset_map(display_width, display_height, block_side_length)
 
     def convert_save_to_list(self, opened_save_file):
-        for rows in opened_save_file:
-            for letters in rows:
-                self.temp_map_list.append(letters)
+        self.opened_save_file = self.opened_save_file.splitlines()
+        for rows in self.opened_save_file:
+            self.temp_map_list = [rows[i:i+1] for i in range(0, len(rows), 1)]
+            self.temp_map_list.append('\n')
 
             self.map_list.append(self.temp_map_list)
             self.temp_map_list = []
@@ -63,7 +66,7 @@ class Editing_State(State):
         for i in range(int(display_height/block_side_length)):
             self.map_list.append(list(self.temp_map_list))
 
-        save_current_map(self.map_list)
+        self.save_current_map(self.map_list)
 
     def create_loaded_blocks(self, block_side_length):
         for y_index in range(len(self.map_list)):
@@ -99,11 +102,10 @@ class Editing_State(State):
 
     # TODO: Have a way to save whiel creating a new file.
     def save_current_map(self, map_list_rep):
-        self.open_save_file = open('save_file.txt', 'w')
-        for rows in map_list_rep:
-            for letter in rows:
-                self.open_save_file.write(letter)
-        self.open_save_file.close()
+        with open("save_file.txt", "w") as opened_file:
+            for rows in map_list_rep:
+                for letter in rows:
+                    opened_file.write(letter)
 
     def update_map_list(self, mouse_click_x_location, mouse_click_y_location,
         block_side_length, action_type):
