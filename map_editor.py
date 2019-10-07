@@ -40,7 +40,7 @@ class Editing_State(State):
             with open(desired_save, "r") as opened_file:
                 self.opened_save_file = opened_file.read()
 
-            self.convert_save_to_list(self.opened_save_file)
+            self.convert_save_to_list()
             self.create_loaded_blocks(block_side_length)
         # TODO: Change this so that the user can choose whether to reset save file.
         # In fact, just allow them to create a new file as an option
@@ -48,7 +48,7 @@ class Editing_State(State):
         except:
             self.reset_map(display_width, display_height, block_side_length)
 
-    def convert_save_to_list(self, opened_save_file):
+    def convert_save_to_list(self):
         self.opened_save_file = self.opened_save_file.splitlines()
         for rows in self.opened_save_file:
             self.temp_map_list = [rows[i:i+1] for i in range(0, len(rows), 1)]
