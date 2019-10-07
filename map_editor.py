@@ -100,7 +100,7 @@ class Editing_State(State):
                     self.delete_block(event.pos, block_side_length)
     #
 
-    # TODO: Have a way to save whiel creating a new file.
+    # TODO: Have a way to save while creating a new file.
     def save_current_map(self):
         with open("save_file.txt", "w") as opened_file:
             for rows in self.map_list:
