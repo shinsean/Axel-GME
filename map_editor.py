@@ -40,7 +40,7 @@ class Editing_State(State):
             with open(desired_save, "r") as opened_file:
                 self.opened_save_file = opened_file.read()
 
-            self.convert_save_to_list(self.opened_save_file)
+            self.convert_save_to_list()
             self.create_loaded_blocks(block_side_length)
         # TODO: Change this so that the user can choose whether to reset save file.
         # In fact, just allow them to create a new file as an option
@@ -48,7 +48,7 @@ class Editing_State(State):
         except:
             self.reset_map(display_width, display_height, block_side_length)
 
-    def convert_save_to_list(self, opened_save_file):
+    def convert_save_to_list(self):
         self.opened_save_file = self.opened_save_file.splitlines()
         for rows in self.opened_save_file:
             self.temp_map_list = [rows[i:i+1] for i in range(0, len(rows), 1)]
@@ -57,7 +57,6 @@ class Editing_State(State):
             self.map_list.append(self.temp_map_list)
             self.temp_map_list = []
 
-    # TODO: This will be used when the user wants to create a new save file. 
     def reset_map(self, display_width, display_height, block_side_length):
         for j in range(int(display_width/block_side_length)):
             self.temp_map_list.append("0")
@@ -100,10 +99,10 @@ class Editing_State(State):
                     self.delete_block(event.pos, block_side_length)
     #
 
-    # TODO: Have a way to save whiel creating a new file.
-    def save_current_map(self, map_list_rep):
+    # TODO: Have a way to save while creating a new file.
+    def save_current_map(self):
         with open("save_file.txt", "w") as opened_file:
-            for rows in map_list_rep:
+            for rows in self.map_list:
                 for letter in rows:
                     opened_file.write(letter)
 

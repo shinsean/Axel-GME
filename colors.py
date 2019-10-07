@@ -1,6 +1,3 @@
-# Created for my own convenience.
-# By Sean Shin
-
 # Basic colors.
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)

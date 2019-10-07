@@ -52,7 +52,7 @@ class Button(pygame.sprite.Sprite):
         else:
             self.hover = False
 
-        if self.hover == True:
+        if self.hover = True:
             self.color = self.alt_color
-        elif self.hover == False:
+        else:
             self.color = self.reg_color
