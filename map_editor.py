@@ -57,7 +57,6 @@ class Editing_State(State):
             self.map_list.append(self.temp_map_list)
             self.temp_map_list = []
 
-    # TODO: This will be used when the user wants to create a new save file. 
     def reset_map(self, display_width, display_height, block_side_length):
         for j in range(int(display_width/block_side_length)):
             self.temp_map_list.append("0")
