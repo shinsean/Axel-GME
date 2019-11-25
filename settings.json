@@ -15,8 +15,10 @@
         // ASSET SETTINGS (SETTINGS FOR BLOCKS, BUTTONS, ETC)
         {
         // BLOCK SETTINGS
-            // Size of the block (in pixels) (block is only square as of now)
-            "side_length": 30
+            // Width of the block (in pixels)
+            "width": 30,
+            // Length of the block (in pixels)
+            "length": 30
         },
         {
         // BUTTON SETTINGS
