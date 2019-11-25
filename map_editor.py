@@ -100,7 +100,7 @@ class Editing_State(State):
     #
 
     # TODO: Have a way to save while creating a new file.
-    def save_current_map(self):
+    def save_current_map(self, map_list):
         with open("save_file.txt", "w") as opened_file:
             for rows in self.map_list:
                 for letter in rows:
