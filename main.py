@@ -1,4 +1,5 @@
 import pygame
+import json
 
 import map_editor as mp_edit
 import colors as clr
