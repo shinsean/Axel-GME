@@ -1,0 +1,13 @@
+{
+    "main": [
+        // GENERAL SETTINGS (SETTINGS FOR MAIN)
+        {
+        // Refresh rate of program
+        "FPS": 30,
+        // Width of the window. Change accordingly with block size
+        "DISPLAY_WIDTH": 600,
+        // Length of the window. Change accordingly with block size
+        "DISPLAY_HEIGHT": 600
+        }
+    ]
+}
