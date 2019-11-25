@@ -9,5 +9,19 @@
         // Length of the window. Change accordingly with block size
         "DISPLAY_HEIGHT": 600
         }
+    ],
+    "map_assets_settings":[
+        // ASSET SETTINGS (SETTINGS FOR BLOCKS, BUTTONS, ETC)
+        {
+        // BLOCK SETTINGS
+            // Size of the block (in pixels) (block is only square as of now)
+            "side_length": 30
+        },
+        {
+        // BUTTON SETTINGS
+            // NONE
+            // PLACEHOLDER
+
+        }
     ]
 }
