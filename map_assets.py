@@ -6,12 +6,16 @@ import colors as clr
 with open('settings.json') as settings_json:
     settings = json.load(settings_json)
 
+    for setting in settings["map_assets_settings"]:
+        block_width = setting["block_width"]
+        block_length = setting["block_length"]
+
 class Block(pygame.sprite.Sprite):
-    def __init__(self, raw_x, raw_y):
+    def __init__(self, raw_x, raw_y, width = block_width, length = block_length):
         super().__init__()
 
-        self.width = 30
-        self.length = 30
+        self.width = width
+        self.length = length
 
         self.raw_x = raw_x
         self.raw_y = raw_y
