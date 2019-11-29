@@ -1,30 +1,18 @@
 {
     "main": [
-        // GENERAL SETTINGS (SETTINGS FOR MAIN)
         {
-        // DISPLAY SETTINGS
-            // Refresh rate of program
             "FPS": 30,
-            // Width of the window. Change accordingly with block size
             "DISPLAY_WIDTH": 600,
-            // Length of the window. Change accordingly with block size
             "DISPLAY_HEIGHT": 600
         }
     ],
     "map_assets_settings":[
-        // ASSET SETTINGS (SETTINGS FOR BLOCKS, BUTTONS, ETC)
         {
-        // BLOCK SETTINGS
-            // Width of the block (in pixels)
             "width": 30,
-            // Length of the block (in pixels)
             "length": 30
         },
         {
-        // BUTTON SETTINGS
-            // NONE
-            // PLACEHOLDER
-
+            
         }
     ]
 }
