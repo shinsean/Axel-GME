@@ -8,11 +8,11 @@
     ],
     "map_assets_settings":[
         {
-            "width": 30,
-            "length": 30
+            "block_width": 30,
+            "block_length": 30
         },
         {
-            
+
         }
     ]
 }
