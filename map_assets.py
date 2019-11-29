@@ -3,6 +3,9 @@ import json
 
 import colors as clr
 
+with open('settings.json') as settings_json:
+    settings = json.load(settings_json)
+
 class Block(pygame.sprite.Sprite):
     def __init__(self, raw_x, raw_y):
         super().__init__()
