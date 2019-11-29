@@ -6,7 +6,7 @@
             "DISPLAY_HEIGHT": 600
         }
     ],
-    "map_assets_settings":[
+    "map_assets_settings": [
         {
             "block_width": 30,
             "block_length": 30
