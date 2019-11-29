@@ -1,27 +1,36 @@
 import pygame
+import json
 
 import colors as clr
 
+with open('settings.json') as settings_json:
+    settings = json.load(settings_json)
+
+    for setting in settings["map_assets_settings"]:
+        block_width = setting["block_width"]
+        block_length = setting["block_length"]
+
 class Block(pygame.sprite.Sprite):
-    def __init__(self, raw_x, raw_y):
+    def __init__(self, raw_x, raw_y, width = block_width, length = block_length):
         super().__init__()
 
-        self.side_length = 30
+        self.width = width
+        self.length = length
 
         self.raw_x = raw_x
         self.raw_y = raw_y
 
-        self.image = pygame.Surface([self.side_length, self.side_length])
+        self.image = pygame.Surface([self.width, self.length])
         self.image.fill(clr.GREEN)
         self.rect = self.image.get_rect()
         self.set_grid_positions()
 
     def set_grid_positions(self):
-        self.rect.x = (int(self.raw_x/self.side_length)
-            * self.side_length)
+        self.rect.x = (int(self.raw_x/self.width)
+            * self.width)
         
-        self.rect.y = (int(self.raw_y/self.side_length)
-            * self.side_length)
+        self.rect.y = (int(self.raw_y/self.length)
+            * self.length)
         
 class Button(pygame.sprite.Sprite):
     def __init__(self, x_position, y_position, width, length, color, alt_color):

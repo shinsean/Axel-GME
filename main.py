@@ -1,4 +1,5 @@
 import pygame
+import json
 
 import map_editor as mp_edit
 import colors as clr
@@ -7,9 +8,17 @@ pygame.init()
 
 #TODO: Make the user be able to change the display width and height. 
 # Possibly use a .txt file or JSON.
-FPS = 30
-DISPLAY_WIDTH = 600
-DISPLAY_HEIGHT = 600
+with open('settings.json') as settings_json:
+    settings = json.load(settings_json)
+
+for setting in settings["main"]:
+    FPS = setting["FPS"]
+    DISPLAY_WIDTH = setting["DISPLAY_WIDTH"]
+    DISPLAY_HEIGHT = setting["DISPLAY_HEIGHT"]
+
+# FPS = 30
+# DISPLAY_WIDTH = 600
+# DISPLAY_HEIGHT = 600
 DISPLAY = pygame.display.set_mode([DISPLAY_WIDTH, DISPLAY_HEIGHT])
 
 clock = pygame.time.Clock()
