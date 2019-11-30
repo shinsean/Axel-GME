@@ -39,7 +39,6 @@ class Editing_State(State):
         self.temp_map_list = []
         self.map_list = []
 
-        self.save_file_name = save_file
         # TODO: Change this so that the desired_save is changeable.
         self.load_save(save_file, display_width, display_height, block_side_length)
 
