@@ -1,4 +1,5 @@
 import pygame
+import json
 
 import map_assets as mp_ast
 
