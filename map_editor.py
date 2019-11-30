@@ -6,6 +6,9 @@ def end_program():
     pygame.quit()
     quit()
 
+with open('settings.json') as settings_json:
+    settings = json.load(settings_json)
+
 class State():
     def __init__(self):
         pass
