@@ -10,6 +10,9 @@ def end_program():
 with open('settings.json') as settings_json:
     settings = json.load(settings_json)
 
+for setting in settings["map_editor_settings"]:
+    selected_save = setting["selected_save"]
+
 class State():
     def __init__(self):
         pass
