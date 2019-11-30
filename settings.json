@@ -6,6 +6,11 @@
             "DISPLAY_HEIGHT": 600
         }
     ],
+    "map_editor_settings": [
+        {
+            "selected_save": "save_file.txt"
+        }
+    ],
     "map_assets_settings": [
         {
             "block_width": 30,

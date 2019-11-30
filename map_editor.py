@@ -1,10 +1,17 @@
 import pygame
+import json
 
 import map_assets as mp_ast
 
 def end_program():
     pygame.quit()
     quit()
+
+with open('settings.json') as settings_json:
+    settings = json.load(settings_json)
+
+for setting in settings["map_editor_settings"]:
+    selected_save = setting["selected_save"]
 
 class State():
     def __init__(self):
@@ -20,7 +27,7 @@ class State():
         raise NotImplementedError
 
 class Editing_State(State):
-    def __init__(self, display_width, display_height, block_side_length):
+    def __init__(self, display_width, display_height, block_side_length, save_file = selected_save):
         super().__init__()
 
         self.all_sprites_list = pygame.sprite.Group()
@@ -32,8 +39,9 @@ class Editing_State(State):
         self.temp_map_list = []
         self.map_list = []
 
+        self.desired_save_name = save_file
         # TODO: Change this so that the desired_save is changeable.
-        self.load_save("save_file.txt", display_width, display_height, block_side_length)
+        self.load_save(save_file, display_width, display_height, block_side_length)
 
     def load_save(self, desired_save, display_width, display_height, block_side_length):
         try:
@@ -101,7 +109,7 @@ class Editing_State(State):
 
     # TODO: Have a way to save while creating a new file.
     def save_current_map(self, map_list):
-        with open("save_file.txt", "w") as opened_file:
+        with open(self.desired_save_name, "w") as opened_file:
             for rows in self.map_list:
                 for letter in rows:
                     opened_file.write(letter)
