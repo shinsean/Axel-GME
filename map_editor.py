@@ -27,7 +27,7 @@ class State():
         raise NotImplementedError
 
 class Editing_State(State):
-    def __init__(self, display_width, display_height, block_side_length):
+    def __init__(self, save_file = selected_save, display_width, display_height, block_side_length):
         super().__init__()
 
         self.all_sprites_list = pygame.sprite.Group()
