@@ -6,8 +6,6 @@ import colors as clr
 
 pygame.init()
 
-#TODO: Make the user be able to change the display width and height. 
-# Possibly use a .txt file or JSON.
 with open('settings.json') as settings_json:
     settings = json.load(settings_json)
 
