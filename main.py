@@ -14,9 +14,6 @@ for setting in settings["main"]:
     DISPLAY_WIDTH = setting["DISPLAY_WIDTH"]
     DISPLAY_HEIGHT = setting["DISPLAY_HEIGHT"]
 
-# FPS = 30
-# DISPLAY_WIDTH = 600
-# DISPLAY_HEIGHT = 600
 DISPLAY = pygame.display.set_mode([DISPLAY_WIDTH, DISPLAY_HEIGHT])
 
 clock = pygame.time.Clock()
